@@ -5,8 +5,8 @@ import Helmet from "react-helmet"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
 const Layout: React.FunctionComponent = ({ children }) => {
-  const meta = useSiteMetadata();
-  
+  const meta = useSiteMetadata()
+
   return (
     <>
       <Global

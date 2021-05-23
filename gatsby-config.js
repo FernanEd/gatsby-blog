@@ -4,8 +4,24 @@ module.exports = {
     description: `A site done in the gatsby workshop`,
   },
   plugins: [
+    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout.tsx"),
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/posts`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
