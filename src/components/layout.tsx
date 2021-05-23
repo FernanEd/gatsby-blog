@@ -1,8 +1,12 @@
 import * as React from "react"
 import { Global, css } from "@emotion/react"
 import Header from "./header"
+import Helmet from "react-helmet"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 const Layout: React.FunctionComponent = ({ children }) => {
+  const meta = useSiteMetadata();
+  
   return (
     <>
       <Global
@@ -53,10 +57,19 @@ const Layout: React.FunctionComponent = ({ children }) => {
         `}
       />
 
+      <Helmet>
+        <html lang="es" />
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+      </Helmet>
       <Header />
-      <main css={css`
-        padding: 0.5rem calc((100vw - 800px) / 2);
-      `}>{children}</main>
+      <main
+        css={css`
+          padding: 0.5rem calc((100vw - 800px) / 2);
+        `}
+      >
+        {children}
+      </main>
     </>
   )
 }
