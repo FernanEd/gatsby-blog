@@ -11,6 +11,8 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve("./src/components/layout.tsx"),
         },
+        gatsbyRemarkPlugins: ['gatsby-remark-images'],
+        plugins: ['gatsby-remark-images'],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -18,15 +20,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/posts`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `posts`,
+        path: `${__dirname}/posts`,
       },
     },
     `gatsby-transformer-sharp`,

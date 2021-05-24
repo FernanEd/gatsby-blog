@@ -10,6 +10,17 @@ const usePosts = (): IPost[] => {
             title
             slug
             author
+            image {
+              sharp: childImageSharp {
+                fluid(
+                  maxWidth: 150
+                  maxHeight: 150
+                  duotone: { shadow: "#663399", highlight: "#ddbbff" }
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
           excerpt
         }
@@ -21,6 +32,7 @@ const usePosts = (): IPost[] => {
     title: post.frontmatter.title,
     author: post.frontmatter.author,
     slug: post.frontmatter.slug,
+    image: post.frontmatter.image,
     excerpt: post.excerpt,
   }))
 }
